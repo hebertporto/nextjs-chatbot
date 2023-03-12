@@ -1,7 +1,24 @@
-export default function Home() {
+import { dayjsHelper } from "@app/lib/timeHelper";
+import { ChatMessageIncome } from "./components/ChatMessageIncome";
+import { ChatMessageOutcome } from "./components/ChatMessageOutcome";
+
+import "./page.module.css";
+
+export default function Page() {
   return (
     <main className='flex flex-col flex-grow w-full max-w-xl bg-white shadow-xl rounded-lg overflow-hidden'>
-      <div className='flex flex-col flex-grow h-0 p-4 overflow-auto'></div>
+      <div className='flex flex-col flex-grow h-0 p-4 overflow-auto'>
+        <ChatMessageOutcome
+          message='Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+          time={dayjsHelper().subtract(5, "minutes").toString()}
+        />
+        <ChatMessageIncome
+          message='Lorem ipsum dolor sit. 2'
+          time={dayjsHelper().subtract(2, "minutes").toString()}
+        />
+      </div>
+
       <div className='bg-gray-300 p-4 flex gap-5'>
         <input
           className='flex items-center h-10 w-full rounded px-3 text-sm'
